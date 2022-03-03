@@ -1,0 +1,29 @@
+.spinner{
+    display: flex;    
+    justify-content: center;
+    margin-top: 20vh;
+        
+    
+}
+
+.spinning{
+    animation: sppiner 1s infinite;
+    font-size: 6rem;
+    color: #fa21a7;
+    
+    
+    
+}
+
+@keyframes sppiner {
+    to{
+        transform: rotate(360deg);
+    }
+    
+}
+
+.load{
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fa21a7, 0 0 30px #fa21a7, 0 0 40px #fa21a7, 0 0 55px #fa21a7, 0 0 75px #fa21a7, 2px 2px 2px rgba(197,23,206,0), 2px 2px 2px rgba(197,23,206,0);
+    color: #FFFFFF;
+    text-align: center;
+}
