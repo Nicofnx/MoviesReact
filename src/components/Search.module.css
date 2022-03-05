@@ -12,7 +12,7 @@
     border-radius: 10px;
     height: 40px;
     width: 40vw;
-    padding: 5px 30px 5px 10px;
+    padding: 5px 35px 5px 10px;
     border: none;
     opacity: 0.8;
     border: 1px solid #fff;
@@ -34,11 +34,11 @@
 
 .searchButtom{
     position: absolute;
-    right: 0;   
+    right: 6px;   
     top:0; 
     background: none;
-    cursor:pointer;
     height:100%;
     border: none;
-    margin: 2px
+    margin: 1px;
+    color: #000
 }

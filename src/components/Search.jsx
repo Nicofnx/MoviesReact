@@ -1,25 +1,22 @@
 import Styles from "./Search.module.css"
 import { FaSearch } from "react-icons/fa";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
-import { useQuery } from "../hooks/useQuery";
 
-export function Search(){
 
-    const [searchText, setSearchText] = useState("");
+
+export function Search({search}){
+
+    
     const navigate = useNavigate();
     const handleSubmit = (e)=>{
         e.preventDefault();
-        navigate("/?search=" + searchText)
+        navigate("/?search=" + search)
 
     }
+   
+    
 
-    const query = useQuery();
-    const search = query.get("search");
-
-    useEffect(() => {
-        setSearchText(search || "");
-    }, [search]);
+    
 
 
     return(
@@ -28,15 +25,18 @@ export function Search(){
                 <input 
                 className= {Styles.searchInput} 
                 type="text" 
-                placeholder="Ingrese pelicula..." 
-                value={searchText} 
-                onChange={(e)=>setSearchText(e.target.value.toLowerCase())}>                    
+                placeholder="Search Movie..."
+                aria-label="search" 
+                value={search} 
+                onChange={(e)=>{
+                    const value = e.target.value.toLowerCase();
+                    navigate("/?search=" + value)
+                }}>                    
                 </input>
-                <button 
-                className= {Styles.searchButtom} 
-                type="submit"><FaSearch 
-                size={20}/>
-                </button>
+                <FaSearch 
+                size={25} 
+                className= {Styles.searchButtom} />
+                
             </div>
         </form>        
     )

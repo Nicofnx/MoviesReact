@@ -1,21 +1,21 @@
-import movies from "./movies.json";
 import { MovieCard } from "./MovieCard";
-import style from "./MovieCard.module.css"
+import style from "./MovieCard.module.css";
 import React, { useEffect, useState } from "react";
 import { get } from "../utils/httpClient";
 import { Snipper } from "./Spinner";
-import { useLocation } from "react-router-dom"
-import { useQuery } from "../hooks/useQuery";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { Empty } from "./Empty";
 
 
-export function MoviesGrid(){
+export function MoviesGrid( { search } ){
     //pARA RENDERIZAR EL CAMBIO SE USA EL useState
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const query = useQuery();
-    const search = query.get("search")
     
-//************************FORMA DE USAR UNA API*******************************//
+    const [pages, setPages] = useState(1);
+    const [hasMore, setHasMOre] = useState(true);
+       
+//************************FORMA DE PEDIR LA API*******************************//
     // useEffect(()=>{
     //         fetch("https://api.themoviedb.org/3/discover/movie",{
     //         headers: {
@@ -31,31 +31,36 @@ export function MoviesGrid(){
     useEffect(()=>{
         setIsLoading(true);
         const serchURL = search 
-        ? "/search/movie?query=" + search
-        : "/discover/movie";
+        ? "/search/movie?query=" + search + "&page=" + pages
+        : "/discover/movie?page=" + pages;
         get(serchURL).then((data)=>{
-            setMovies(data.results);
+            setMovies((prevMovies) => prevMovies.concat(data.results));
+            setHasMOre(data.page < data.total_pages);
             setIsLoading(false)            
         });
-    },[search]);
+    },[search, pages]);
      //****************************************************************//
-     if(isLoading){
-        return <Snipper/> 
+    if (!isLoading && movies.length===0){
+        return <Empty/>
     }
      return(
-         <>
-            <h2>Carrusel de pelis</h2>
+         <InfiniteScroll
+         dataLength={movies.length} //This is important field to render the next data
+         next={()=>setPages((prevPages)=> prevPages + 1)}
+         hasMore={hasMore}
+         loader={<Snipper/> }
+       >   
+             
             <ul className={style.moviesGrid}>
                 {movies.map((movie)=> (
                     <MovieCard key={movie.id} movie={movie} />
-                    
-                    )
-                    
+                    )                    
                 )}
-                
-                
             </ul>
-        </>
+        </InfiniteScroll>
+         
+            
+        
     )
     
 }

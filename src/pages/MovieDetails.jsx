@@ -5,11 +5,15 @@ import { useEffect, useState } from "react";
 import { get } from "../utils/httpClient";
 import { Snipper } from "../components/Spinner";
 
+import { getMovieImg } from "../utils/getMovieImg";
+
 export function MovieDetails(){
     
     const { movieId } = useParams();
     const [isLoading, setIsLoading] = useState(true);
     const [movie, setMovie] = useState(null);
+
+   
 
     useEffect(()=>{
         setIsLoading(true);
@@ -24,7 +28,7 @@ export function MovieDetails(){
     }
 
     
-    const imgUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+    const imgUrl = getMovieImg(movie.poster_path, 500)
     
     return(
         <div className={styles.detailsContainer}>
