@@ -13,7 +13,7 @@ export function Footer(){
             <div className= {style.footer}>
                 <p>Page By FnX - Nicolas Rodriguez</p>
                 <a href="https://www.linkedin.com/in/nicolas-rodriguez-5a8957231/" target="_blank"><BsLinkedin/></a>
-                <a href="https://www.linkedin.com/in/nicolas-rodriguez-5a8957231/" target="_blank"><FaGithubSquare/></a>
+                <a href="https://github.com/Nicofnx/pelisReact" target="_blank"><FaGithubSquare/></a>
                                 
             </div>
         </footer>
