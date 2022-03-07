@@ -1,5 +1,5 @@
 import Styles from "./Search.module.css"
-import { FaSearch } from "react-icons/fa";
+
 import { useNavigate } from "react-router-dom"
 
 
@@ -33,10 +33,7 @@ export function Search({search}){
                     navigate("/?search=" + value)
                 }}>                    
                 </input>
-                <FaSearch
-                className= {Styles.searchButtom} >
-                size={25}                 
-                </FaSearch>
+                <b className={Styles.searchButtom}>B</b>
                 
             </div>
         </form>        
