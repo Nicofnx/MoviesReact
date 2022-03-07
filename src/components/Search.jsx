@@ -33,9 +33,9 @@ export function Search({search}){
                     navigate("/?search=" + value)
                 }}>                    
                 </input>
-                <FaSearch>
-                size={25} 
-                className= {Styles.searchButtom} 
+                <FaSearch
+                className= {Styles.searchButtom} >
+                size={25}                 
                 </FaSearch>
                 
             </div>

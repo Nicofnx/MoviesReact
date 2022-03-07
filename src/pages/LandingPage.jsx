@@ -1,3 +1,4 @@
+import { Footer } from "../components/Footer";
 import { MoviesGrid } from "../components/MoviesGrid";
 import { Search } from "../components/Search";
 import { useDebounce } from "../hooks/useDebounce";
@@ -12,9 +13,9 @@ export function LandingPage (){
     const debounceSearch = useDebounce(search, 500)
     return(
         <div className={Style.landingBox}>
-            <Search search={search}></Search>
-            
+            <Search search={search}></Search>            
             <MoviesGrid key={debounceSearch} search={debounceSearch}></MoviesGrid>
+            <Footer/>
             
 
 

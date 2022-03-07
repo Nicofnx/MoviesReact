@@ -9,7 +9,7 @@
 .spinning{
     animation: sppiner 1s infinite;
     font-size: 6rem;
-    color: #fa21a7;
+    color: #2310f7;
     
     
     
@@ -23,7 +23,7 @@
 }
 
 .load{
-    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fa21a7, 0 0 30px #fa21a7, 0 0 40px #fa21a7, 0 0 55px #fa21a7, 0 0 75px #fa21a7, 2px 2px 2px rgba(197,23,206,0), 2px 2px 2px rgba(197,23,206,0);
-    color: #FFFFFF;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #3380f4, 0 0 30px #3380f4, 0 0 40px #3380f4, 0 0 55px #3380f4, 0 0 75px #3380f4, 2px 2px 2px rgba(197,23,206,0), 2px 2px 2px rgba(197,23,206,0);
+    color: #000;
     text-align: center;
 }
