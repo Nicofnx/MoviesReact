@@ -1,5 +1,5 @@
 import Styles from "./Search.module.css"
-import { BiSearch } from "react-icons/bi"
+
 import { useNavigate } from "react-router-dom"
 
 
@@ -33,7 +33,7 @@ export function Search({search}){
                     navigate("/?search=" + value)
                 }}>                    
                 </input>
-                <BiSearch size={30} className={Styles.searchButtom}/>
+                <p className={Styles.searchButtom}>🔍</p>
                 
             </div>
         </form>        
